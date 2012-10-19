@@ -9,7 +9,7 @@
  * Implements hook_ding_entity_fields().
  */
 function ding_entity_ding_entity_fields() {
-  return array(
+  /*return array(
     'ding_entity_buttons' => array(
       'field' => array(
         'locked' => TRUE,
@@ -21,5 +21,5 @@ function ding_entity_ding_entity_fields() {
         'label' => t('Action buttons'),
       ),
     ),
-  );
+  );*/
 }
