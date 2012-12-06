@@ -80,7 +80,15 @@ function ding_entity_modules_enabled($modules) {
           // Different bundles are currently not supported.
           $field['instance']['entity_type'] = $field['instance']['bundle'] = $info['entity_type'];
         }
-        field_create_instance($field['instance']);
+        if (is_array($field['instance']['entity_type'])){
+          foreach ($field['instance']['entity_type'] as $entity_type){
+            $instance = $field['instance'];
+            $instance['entity_type'] = $instance['ding_entity_type'] = $instance['bundle'] = $entity_type;
+            field_create_instance($instance);
+          }
+        }else{
+          field_create_instance($field['instance']);
+        }
       }
     }
   }
