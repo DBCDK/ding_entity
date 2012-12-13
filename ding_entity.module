@@ -68,7 +68,7 @@ function ding_entity_modules_enabled($modules) {
         if (field_info_field($field_name))
           continue;
         $field['field'] += array(
-          'field_na'me' => $field_name,
+          'field_name' => $field_name,
           'type' => $field_name,
         );
         field_create_field($field['field']);
