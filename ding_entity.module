@@ -64,6 +64,9 @@ function ding_entity_modules_enabled($modules) {
     if (module_hook($module, 'ding_entity_fields')) {
       $fields = module_invoke($module, 'ding_entity_fields');
       foreach ($fields as $field_name => $field) {
+        //If field already exists move on to the next field
+        if (field_info_field($field_name))
+          continue;
         $field['field'] += array(
           'field_name' => $field_name,
           'type' => $field_name,
